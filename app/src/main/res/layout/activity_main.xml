@@ -7,9 +7,16 @@
     android:orientation="vertical"
     tools:context="com.volleyutil.weiwei.volleyutilproject.MainActivity">
 
+    <Button
+        android:id="@+id/btn_toQuery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/to_query" />
+
     <ImageView
         android:id="@+id/img_request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
 
 </LinearLayout>

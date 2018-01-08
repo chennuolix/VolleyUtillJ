@@ -1,4 +1,4 @@
-package com.volleyutil.weiwei.VolleyUtilJ;
+package VolleyUtilJ;
 
 import android.content.Context;
 
@@ -9,9 +9,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.volleyutil.weiwei.VolleyUtilJ.RequestCallBack.StringRequestCallBack;
+
 
 import java.util.Map;
+
+import VolleyUtilJ.RequestCallBack.StringRequestCallBack;
 
 /**
  * Created by Administrator on 2017/9/29.
@@ -73,7 +75,9 @@ public class VolleyStringUtilJ {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         if (listener != null) {
-                            listener.failCallBack(volleyError);
+                            VolleyErrorManager volleyErrorManager = new VolleyErrorManager();
+                            volleyErrorManager.setVolleyError(volleyError);
+                            listener.failCallBack(volleyErrorManager);
                         }
                     }
                 }) {

@@ -1,4 +1,4 @@
-package com.volleyutil.weiwei.VolleyUtilJ;
+package VolleyUtilJ;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,10 +11,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.Volley;
-import com.volleyutil.weiwei.VolleyUtilJ.RequestCallBack.ImageRequestCallBack;
-import com.volleyutil.weiwei.volleyutilproject.R;
+import com.luuuu.netmodule.R;
 
 import java.util.Map;
+
+import VolleyUtilJ.RequestCallBack.ImageRequestCallBack;
 
 /**
  * Created by Administrator on 2017/9/29.
@@ -87,7 +88,9 @@ public class VolleyImageUtilJ {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         if (listener != null) {
-                            listener.failCallBack(volleyError);
+                            VolleyErrorManager volleyErrorManager = new VolleyErrorManager();
+                            volleyErrorManager.setVolleyError(volleyError);
+                            listener.failCallBack(volleyErrorManager);
                         }
                     }
                 }

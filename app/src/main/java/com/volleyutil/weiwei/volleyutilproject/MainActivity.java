@@ -8,10 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.android.volley.VolleyError;
-import com.volleyutil.weiwei.VolleyUtilJ.RequestCallBack.StringRequestCallBack;
-import com.volleyutil.weiwei.VolleyUtilJ.VolleyImageUtilJ;
-import com.volleyutil.weiwei.VolleyUtilJ.VolleyStringUtilJ;
+import VolleyUtilJ.RequestCallBack.StringRequestCallBack;
+import VolleyUtilJ.VolleyErrorManager;
+import VolleyUtilJ.VolleyImageUtilJ;
+import VolleyUtilJ.VolleyStringUtilJ;
+
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -33,8 +34,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             }
 
             @Override
-            public void failCallBack(VolleyError volleyError) {
-                Log.d(TAG_STRING_FAIL, volleyError.getMessage());
+            public void failCallBack(VolleyErrorManager volleyError) {
+//                Log.d(TAG_STRING_FAIL, volleyError.getMessage());
             }
         });
         VolleyImageUtilJ.getInstance(this).startImageLoaderRequest("http://img2.imgtn.bdimg.com/it/u=3895206830,2289042136&fm=27&gp=0.jpg", imageView);

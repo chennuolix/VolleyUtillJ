@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.volley.VolleyError;
-import com.volleyutil.weiwei.VolleyUtilJ.RequestCallBack.StringRequestCallBack;
-import com.volleyutil.weiwei.VolleyUtilJ.VolleyStringUtilJ;
+
+import VolleyUtilJ.RequestCallBack.StringRequestCallBack;
+import VolleyUtilJ.VolleyErrorManager;
+import VolleyUtilJ.VolleyStringUtilJ;
 
 /**
  * Created by weiwei on 17-10-25.
@@ -49,7 +50,7 @@ public class QueryPythonActivity extends Activity implements View.OnClickListene
                     }
 
                     @Override
-                    public void failCallBack(VolleyError volleyError) {
+                    public void failCallBack(VolleyErrorManager volleyError) {
                         Log.e(TAG, "request error");
                     }
                 });

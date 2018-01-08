@@ -1,4 +1,4 @@
-package com.volleyutil.weiwei.VolleyUtilJ.RequestCallBack;
+package VolleyUtilJ.RequestCallBack;
 
 /**
  * Created by Administrator on 2017/9/29.

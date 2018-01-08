@@ -1,4 +1,4 @@
-package com.volleyutil.weiwei.VolleyUtilJ;
+package VolleyUtilJ;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;

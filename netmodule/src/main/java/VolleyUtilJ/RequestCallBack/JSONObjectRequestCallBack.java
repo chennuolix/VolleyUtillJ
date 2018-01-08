@@ -1,4 +1,4 @@
-package com.volleyutil.weiwei.VolleyUtilJ.RequestCallBack;
+package VolleyUtilJ.RequestCallBack;
 
 import org.json.JSONObject;
 

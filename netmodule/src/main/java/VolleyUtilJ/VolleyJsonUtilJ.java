@@ -1,4 +1,4 @@
-package com.volleyutil.weiwei.VolleyUtilJ;
+package VolleyUtilJ;
 
 import android.content.Context;
 
@@ -10,13 +10,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.volleyutil.weiwei.VolleyUtilJ.RequestCallBack.JSONArrayRequestCallBack;
-import com.volleyutil.weiwei.VolleyUtilJ.RequestCallBack.JSONObjectRequestCallBack;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.Map;
+
+import VolleyUtilJ.RequestCallBack.JSONArrayRequestCallBack;
+import VolleyUtilJ.RequestCallBack.JSONObjectRequestCallBack;
 
 /**
  * Created by Administrator on 2017/9/29.
@@ -77,7 +78,9 @@ public class VolleyJsonUtilJ {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         if (listener != null) {
-                            listener.failCallBack(volleyError);
+                            VolleyErrorManager volleyErrorManager = new VolleyErrorManager();
+                            volleyErrorManager.setVolleyError(volleyError);
+                            listener.failCallBack(volleyErrorManager);
                         }
                     }
                 }) {
@@ -134,7 +137,9 @@ public class VolleyJsonUtilJ {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         if (listener != null) {
-                            listener.failCallBack(volleyError);
+                            VolleyErrorManager volleyErrorManager = new VolleyErrorManager();
+                            volleyErrorManager.setVolleyError(volleyError);
+                            listener.failCallBack(volleyErrorManager);
                         }
                     }
                 }) {

@@ -1,4 +1,4 @@
-package VolleyUtilJ;
+package com.luuu.netmodule.VolleyUtilJ;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,7 +15,7 @@ import com.luuuu.netmodule.R;
 
 import java.util.Map;
 
-import VolleyUtilJ.RequestCallBack.ImageRequestCallBack;
+import com.luuu.netmodule.VolleyUtilJ.RequestCallBack.ImageRequestCallBack;
 
 /**
  * Created by Administrator on 2017/9/29.
@@ -39,8 +39,12 @@ public class VolleyImageUtilJ {
     }
 
     public static synchronized VolleyImageUtilJ getInstance(Context context) {
-        if (instance == null) {
-            instance = new VolleyImageUtilJ(context);
+        if (instance == null){
+            synchronized (VolleyImageUtilJ.class){
+                if (instance == null) {
+                    instance = new VolleyImageUtilJ(context);
+                }
+            }
         }
         return instance;
     }

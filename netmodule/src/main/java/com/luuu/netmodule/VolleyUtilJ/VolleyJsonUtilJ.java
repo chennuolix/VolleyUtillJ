@@ -1,4 +1,4 @@
-package VolleyUtilJ;
+package com.luuu.netmodule.VolleyUtilJ;
 
 import android.content.Context;
 
@@ -16,8 +16,8 @@ import org.json.JSONObject;
 
 import java.util.Map;
 
-import VolleyUtilJ.RequestCallBack.JSONArrayRequestCallBack;
-import VolleyUtilJ.RequestCallBack.JSONObjectRequestCallBack;
+import com.luuu.netmodule.VolleyUtilJ.RequestCallBack.JSONArrayRequestCallBack;
+import com.luuu.netmodule.VolleyUtilJ.RequestCallBack.JSONObjectRequestCallBack;
 
 /**
  * Created by Administrator on 2017/9/29.
@@ -37,8 +37,12 @@ public class VolleyJsonUtilJ {
     }
 
     public static synchronized VolleyJsonUtilJ getInstance(Context context) {
-        if (instance == null) {
-            instance = new VolleyJsonUtilJ(context);
+        if (instance == null){
+            synchronized (VolleyJsonUtilJ.class){
+                if (instance == null) {
+                    instance = new VolleyJsonUtilJ(context);
+                }
+            }
         }
         return instance;
     }

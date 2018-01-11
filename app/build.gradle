@@ -35,4 +35,5 @@ dependencies {
     compile(name: 'netmodule-release', ext: 'aar')
     testCompile 'junit:junit:4.12'
 //    compile project(path: ':netmodule')
+    compile project(path: ':datamodule')
 }

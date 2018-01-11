@@ -1,4 +1,4 @@
-package VolleyUtilJ;
+package com.luuu.netmodule.VolleyUtilJ;
 
 import android.content.Context;
 
@@ -9,11 +9,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.luuu.netmodule.VolleyUtilJ.RequestCallBack.StringRequestCallBack;
 
 
 import java.util.Map;
-
-import VolleyUtilJ.RequestCallBack.StringRequestCallBack;
 
 /**
  * Created by Administrator on 2017/9/29.
@@ -35,7 +34,11 @@ public class VolleyStringUtilJ {
 
     public static synchronized VolleyStringUtilJ getInstance(Context context) {
         if (instance == null) {
-            instance = new VolleyStringUtilJ(context);
+            synchronized (VolleyStringUtilJ.class) {
+                if (instance == null) {
+                    instance = new VolleyStringUtilJ(context);
+                }
+            }
         }
         return instance;
     }

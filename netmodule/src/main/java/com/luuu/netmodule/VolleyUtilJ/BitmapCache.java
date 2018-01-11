@@ -1,4 +1,4 @@
-package VolleyUtilJ;
+package com.luuu.netmodule.VolleyUtilJ;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;

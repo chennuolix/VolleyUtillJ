@@ -1,6 +1,6 @@
-package VolleyUtilJ.RequestCallBack;
+package com.luuu.netmodule.VolleyUtilJ.RequestCallBack;
 
-import VolleyUtilJ.VolleyErrorManager;
+import com.luuu.netmodule.VolleyUtilJ.VolleyErrorManager;
 
 /**
  * Created by Administrator on 2017/9/26.

@@ -8,10 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.luuu.netmodule.VolleyUtilJ.RequestCallBack.StringRequestCallBack;
+import com.luuu.netmodule.VolleyUtilJ.VolleyErrorManager;
+import com.luuu.netmodule.VolleyUtilJ.VolleyStringUtilJ;
 
-import VolleyUtilJ.RequestCallBack.StringRequestCallBack;
-import VolleyUtilJ.VolleyErrorManager;
-import VolleyUtilJ.VolleyStringUtilJ;
 
 /**
  * Created by weiwei on 17-10-25.

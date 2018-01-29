@@ -1,0 +1,9 @@
+{
+  "NAME":{
+    "patternString":[
+      "^[\\u4e00-\\u9fa5A-Za-z]{1,20}$"
+    ],
+    "maxLength":20,
+    "tip":"姓名只支持20长度的中文或者英文"
+  }
+}

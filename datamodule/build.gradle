@@ -32,5 +32,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation files('lib/ormlite-android-5.0.jar')
     implementation files('lib/ormlite-core-5.0.jar')
-    implementation files('lib/gson-2.8.0.jar')
 }

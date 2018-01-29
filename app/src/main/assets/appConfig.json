@@ -1,5 +1,8 @@
 {
   "appInit": {
-    "sp_name": "luuu_sp_name"
+    "SP_NAME": "luuu_sp_name",
+    "URL_DOMAIN": "http://www.baidu.com",
+    "THREAD_NUM": 1,
+    "IS_PASS": true
   }
 }

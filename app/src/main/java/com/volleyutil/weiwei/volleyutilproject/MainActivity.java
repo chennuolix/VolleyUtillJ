@@ -8,10 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.luuu.logmodule.LoggerUtil;
 import com.luuu.netmodule.VolleyUtilJ.RequestCallBack.StringRequestCallBack;
 import com.luuu.netmodule.VolleyUtilJ.VolleyErrorManager;
 import com.luuu.netmodule.VolleyUtilJ.VolleyImageUtilJ;
 import com.luuu.netmodule.VolleyUtilJ.VolleyStringUtilJ;
+
+import java.util.HashMap;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -24,6 +27,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LoggerUtil.d("MainActivity onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
@@ -35,13 +39,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             @Override
             public void failCallBack(VolleyErrorManager volleyError) {
-//                Log.d(TAG_STRING_FAIL, volleyError.getMessage());
+
             }
         });
         VolleyImageUtilJ.getInstance(this).startImageLoaderRequest("http://img2.imgtn.bdimg.com/it/u=3895206830,2289042136&fm=27&gp=0.jpg", imageView);
+        HashMap<String, String> testMap = new HashMap<>();
+        testMap.put("key1", "value1");
+        testMap.put("key2", "value2");
+        testMap.put("key3", "value3");
+        LoggerUtil.d(testMap);
+        LoggerUtil.d("my self tag", testMap);
     }
 
     private void initView() {
+        LoggerUtil.d("my self tag:", "MainActivity initView()");
         imageView = findViewById(R.id.img_request);
         btnToQuery = findViewById(R.id.btn_toQuery);
         btnToQuery.setOnClickListener(this);

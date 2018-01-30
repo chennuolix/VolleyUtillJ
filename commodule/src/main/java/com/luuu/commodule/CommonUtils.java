@@ -1,7 +1,5 @@
 package com.luuu.commodule;
 
-import android.text.TextUtils;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;

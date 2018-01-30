@@ -7,10 +7,8 @@ package com.volleyutil.weiwei.volleyutilproject.AppInit;
 public class AppConfig {
 
     private static String SP_NAME = "";       //SharedPreferences的名字
-
     private static String NET_DOMAIN = "";    //网络请求url前缀
-
-    private static double THREAD_NUM = 0;
+    private static double THREAD_NUM = 0;     //线程个数
     private static boolean IS_PASS = false;
 
     public static String getSpName() {
@@ -29,8 +27,8 @@ public class AppConfig {
         NET_DOMAIN = netDomain;
     }
 
-    public static double getThreadNum() {
-        return THREAD_NUM;
+    public static int getThreadNum() {
+        return (int) THREAD_NUM;
     }
 
     public static void setThreadNum(int threadNum) {

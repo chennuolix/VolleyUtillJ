@@ -4,5 +4,11 @@
     "URL_DOMAIN": "http://www.baidu.com",
     "THREAD_NUM": 1,
     "IS_PASS": true
+  },
+  "logInit": {
+    "TAG_NAME": "Luuu TAG",
+    "IS_DEBUG": true,
+    "SHOW_THREAD": false,
+    "METHOD_COUNT": 4
   }
 }

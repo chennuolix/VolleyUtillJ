@@ -50,6 +50,7 @@ public class ToastManager {
 
     /**
      * 在一定时间内不重复展示相同内容
+     * 自定义toast展示的位置
      *
      * @param context
      * @param tip

@@ -8,11 +8,17 @@ import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.luuu.commodule.CommonUtils;
 import com.luuu.datamodule.SPDataUtilJ.SPManager;
+import com.luuu.logmodule.LoggerManager;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.Map;
+import java.util.logging.LogManager;
 
 /**
  * Created by luuu on 2018/1/19.
@@ -22,9 +28,15 @@ public class InitManager {
 
     private static AppInitListener appInitListener = null;
 
+    /**
+     * 初始化
+     *
+     * @param context
+     */
     public static void init(Context context) {
         initAppConfig(context);
         initSP();
+        initLoggerManager();
         if (appInitListener != null) {
             appInitListener.initSuccess();
         }
@@ -48,16 +60,20 @@ public class InitManager {
      */
     private static void initAppConfig(Context context) {
         try {
-            Class appConfigClass = AppConfig.class;
             InputStream inputStream = context.getAssets().open("appConfig.json");
             String json = CommonUtils.convertStreamToString(inputStream);
             if (!TextUtils.isEmpty(json)) {
                 Gson gson = new Gson();
                 LinkedTreeMap<String, Object> appConfig = (LinkedTreeMap<String, Object>) gson.fromJson(json, Object.class);
-                parseConfigMap(appConfig, appConfigClass);
                 if (appConfig.containsKey("appInit")) {
+                    Class appConfigClass = AppConfig.class;
                     LinkedTreeMap<String, String> appInit = (LinkedTreeMap<String, String>) appConfig.get("appInit");
                     parseConfigMap(appInit, appConfigClass);
+                }
+                if (appConfig.containsKey("logInit")) {
+                    Class loggerManagerClass = LoggerManager.class;
+                    LinkedTreeMap<String, String> logInit = (LinkedTreeMap<String, String>) appConfig.get("logInit");
+                    parseConfigMap(logInit, loggerManagerClass);
                 }
             }
             String sp_name = AppConfig.getSpName();
@@ -112,4 +128,17 @@ public class InitManager {
         SPManager.getInstance().setSpName(AppConfig.getSpName());
     }
 
+    /**
+     * 初始化Log相关
+     */
+    private static void initLoggerManager() {
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(LoggerManager.isShowThread())
+                .methodCount(LoggerManager.getMethodCount())
+                .methodOffset(LoggerManager.getMethodOffset())
+                .tag(LoggerManager.getTagName())
+                .build();
+
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
+    }
 }
